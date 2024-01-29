@@ -17,23 +17,41 @@ int main(int argc, char** argv)
 	
 	// Create a window with the specified title
 	glutCreateWindow("OpenGL - First window demo");
+
+	// Begin drawing lines
+	glBegin(GL_LINES);
 	
-	// Begin drawing a polygon
-	glBegin(GL_POLYGON);
-	
-	// Set the color of the polygon to light blue
+	// Set the color to light blue
 	glColor3f(0.5,0.5,1.0);
 	
-	// Specify the vertices of the polygon
-	glVertex2f(-0.5,-0.5);
-	glVertex2f(-0.5,0.5);
-	glVertex2f(0.5,0.5);
-	glVertex2f(0.5,-0.5);
+	// Define the first line segment
+	glVertex2f(-0.4,0.5);
+	glVertex2f(-0.5,0.4);
 	
-	// End drawing the polygon
+	// Begin drawing lines
+	glBegin(GL_LINES);
+	
+	// Set the color to light blue
+	glColor3f(0.3,0.8,1.0);
+	
+	// Define the second line segment
+	glVertex2f(-0.0,-0.5);
+	glVertex2f(0.4,0.1);
+	
+	// Begin drawing lines
+	glBegin(GL_LINES);
+	
+	// Set the color to light blue
+	glColor3f(0.1,1.0,1.0);
+	
+	// Define the third line segment
+	glVertex2f(0.0,0.8);
+	glVertex2f(0.3,-0.4);
+	
+	// End drawing lines
 	glEnd();
 	
-	// Flush any buffered OpenGL commands
+	// Flush the drawing commands
 	glFlush();
 	
 	// Enter the GLUT event processing loop
