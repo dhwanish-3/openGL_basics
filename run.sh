@@ -10,7 +10,7 @@ filename=$(basename "$file" .c)
 echo "Compiling $file"
 
 # Compile the file and create object in the same directory
-gcc -o "$dir/$filename" "$file" -lglut -lGLU -lGL
+gcc -o "$dir/$filename" "$file" -lglut -lGLU -lGL -lm
 
 # Run the output
 echo "Running $dir/$filename"
