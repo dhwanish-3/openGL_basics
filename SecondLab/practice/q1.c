@@ -25,7 +25,6 @@ void readInput()
 
 void renderFunction()
 {
-    int i=0;
     glClearColor(p[0].r, p[0].g, p[0].b, p[0].a); // Set the clear color for the window
     glClear(GL_COLOR_BUFFER_BIT); // Clear the color buffer
     glColor3f(0.0, 0.0, 1.0); // Set the current color to blue
