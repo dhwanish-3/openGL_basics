@@ -22,7 +22,7 @@ int main(int argc, char** argv)
 	glBegin(GL_POLYGON);
 	
 	// Set the color of the polygon to light blue
-	glColor3f(0.5,0.5,1.0);
+	glColor3f(0.5,0.75,1.0);
 	
 	// Specify the vertices of the polygon
 	glVertex2f(-0.5,-0.5);
