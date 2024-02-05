@@ -5,18 +5,16 @@
 
 float angle = 0.0; // Global variable to store the rotation angle
 
-void MyKeyboardFunc(unsigned char Key, int x, int y)
+void mySpecialFunc(int key, int x, int y)
 {
     // if pressed key is left arrow key
-    if (Key == 'l')
+    if (key == GLUT_KEY_LEFT)
     {
-        printf("Left arrow pressed\n");
         angle += 30;         // Increase the rotation angle by 30 degrees
         glutPostRedisplay(); // Post redisplay event to redraw the triangle
     }
-    else if (Key == 'r')
+    else if (key == GLUT_KEY_RIGHT)
     {
-        printf("Right arrow pressed\n");
         angle -= 30;         // Decrease the rotation angle by 30 degrees
         glutPostRedisplay(); // Post redisplay event to redraw the triangle
     }
@@ -53,7 +51,7 @@ int main(int argc, char **argv)
 
     // Registering a keyboard event callback
     // MyKeyboardFunc will now get called on any key board button press
-    glutKeyboardFunc(MyKeyboardFunc);
+    glutSpecialFunc(mySpecialFunc);
 
     glutDisplayFunc(renderFunction); // Set render function
     glutMainLoop();                  // Enter main event loop
