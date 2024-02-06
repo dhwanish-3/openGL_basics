@@ -22,14 +22,13 @@ void mySpecialFunc(int key, int x, int y)
 
 void drawTriangle()
 {
-    glPushMatrix();            // Push the current matrix onto the stack
+    glLoadIdentity();
     glRotatef(angle, 0, 0, 1); // Rotate the triangle by the current angle
     glBegin(GL_TRIANGLES);     // Begin drawing triangles
     glVertex2f(0.0, 0.0);      // Set first vertex of triangle
     glVertex2f(0.5, 0.0);      // Set second vertex of triangle
     glVertex2f(0.25, 0.5);     // Set third vertex of triangle
     glEnd();                   // End drawing triangles
-    glPopMatrix();             // Pop the matrix from the stack
 }
 
 void renderFunction()
