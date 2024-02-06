@@ -2,6 +2,7 @@
 
 .vscode
 
+# to ignore object files
 *
 !/**/
 !*.*

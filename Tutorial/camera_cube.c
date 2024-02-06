@@ -26,8 +26,8 @@ void init()
     glLoadIdentity();               // Load the identity matrix
     glFrustum(-1, 1, -1, 1, 2, 10); // Set the perspective projection
     glMatrixMode(GL_MODELVIEW);     // Set the matrix mode to modelview
-    glEnable(GL_LIGHTING); // Enable lighting
-    glEnable(GL_LIGHT0); // Enable light 0
+    glEnable(GL_LIGHTING);          // Enable lighting
+    glEnable(GL_LIGHT0);            // Enable light 0
 }
 
 // function to draw a square
@@ -95,11 +95,11 @@ void renderFunction()
     init();                                             // Initialize the OpenGL settings
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear the color and depth buffers
 
-    glLoadIdentity();   // Load the identity matrix
-    GLfloat position[] = {0, 1, 0 , 1}; // Light position
-    GLfloat color[] = {1, 0, 0 ,1}; // Light color
-    glLightfv(GL_LIGHT0, GL_POSITION, position); // Set the light position
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, color); // Set the light color                                                       // Load the identity matrix
+    glLoadIdentity();                                                                 // Load the identity matrix
+    GLfloat position[] = {0, 1, 0, 1};                                                // Light position
+    GLfloat color[] = {1, 0, 0, 1};                                                   // Light color
+    glLightfv(GL_LIGHT0, GL_POSITION, position);                                      // Set the light position
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, color);                                          // Set the light color                                                       // Load the identity matrix
     gluLookAt(cx, cy, cz, 0, 0, 0, 0, 1, 0);                                          // Set the camera position and orientation
     drawCube(cube[0], cube[1], cube[2], cube[3], cube[4], cube[5], cube[6], cube[7]); // Draw the cube
     glutSwapBuffers();                                                                // Swap the front and back buffers to display the rendered image

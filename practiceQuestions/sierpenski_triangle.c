@@ -4,7 +4,8 @@
 #include <math.h>
 
 // function to draw a triangle with 3 lines and recursively draw triangles inside it
-void drawTriangles(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat x3, GLfloat y3, int depth) {
+void drawTriangles(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat x3, GLfloat y3, int depth)
+{
     // draw the triangle
     glBegin(GL_LINE_LOOP);
     glVertex2f(x1, y1);
@@ -18,30 +19,33 @@ void drawTriangles(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat x3, G
     GLfloat x31 = (x3 + x1) / 2, y31 = (y3 + y1) / 2;
 
     // recursively draw triangles inside the triangle
-    if (depth < 8) {
+    if (depth < 8)
+    {
         drawTriangles(x1, y1, x12, y12, x31, y31, depth + 1);
         drawTriangles(x12, y12, x2, y2, x23, y23, depth + 1);
         drawTriangles(x31, y31, x23, y23, x3, y3, depth + 1);
     }
 }
 
-void renderFunction() {
+void renderFunction()
+{
     glClearColor(1.0, 1.0, 1.0, 1.0); // Set clear color to white
-    glClear(GL_COLOR_BUFFER_BIT); // Clear color buffer
-    glColor3f(0.0, 0.0, 0.0); // Set drawing color to black
+    glClear(GL_COLOR_BUFFER_BIT);     // Clear color buffer
+    glColor3f(0.0, 0.0, 0.0);         // Set drawing color to black
 
     // Draw the triangles
     drawTriangles(-0.9, -0.9, 0.9, -0.9, 0.0, 0.9, 0);
     glFlush(); // Flush drawing commands
 }
 
-int main(int argc, char** argv) {
-    glutInit(&argc, argv); // Initialize GLUT
-    glutInitDisplayMode(GLUT_SINGLE); // Set display mode to single buffer
-    glutInitWindowSize(500, 500); // Set window size to 500x500 pixels
-    glutInitWindowPosition(100, 100); // Set window position
-    glutCreateWindow("OpenGL - Sierpenski Triangle"); // Create window with title 
-    glutDisplayFunc(renderFunction); // Set render function
-    glutMainLoop(); // Enter main event loop
+int main(int argc, char **argv)
+{
+    glutInit(&argc, argv);                            // Initialize GLUT
+    glutInitDisplayMode(GLUT_SINGLE);                 // Set display mode to single buffer
+    glutInitWindowSize(500, 500);                     // Set window size to 500x500 pixels
+    glutInitWindowPosition(100, 100);                 // Set window position
+    glutCreateWindow("OpenGL - Sierpenski Triangle"); // Create window with title
+    glutDisplayFunc(renderFunction);                  // Set render function
+    glutMainLoop();                                   // Enter main event loop
     return 0;
 }
