@@ -19,8 +19,8 @@ typedef struct
     float r, g, b;
 } Color;
 
-Circle circles[100];
-int count = 0;
+Circle circles[100]; // Array to store circles
+int count = 0;       // Counter for the number of circles
 
 Color colors[5] = {
     {1.0, 0.0, 0.0}, // Red
@@ -34,16 +34,18 @@ void mouseClick(int button, int state, int x, int y)
 {
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN && count < 100)
     {
+        // Convert mouse coordinates to OpenGL coordinates
         circles[count].centre.x = (float)x / glutGet(GLUT_WINDOW_WIDTH) * 2 - 1;
         circles[count].centre.y = 1 - (float)y / glutGet(GLUT_WINDOW_HEIGHT) * 2;
-        circles[count].color = count % 5;
+        circles[count].color = count % 5; // Assign color based on count
         count++;
-        glutPostRedisplay();
+        glutPostRedisplay(); // Trigger redisplay
     }
     else if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN && count > 0)
     {
+        // Change the color of the last added circle
         circles[count - 1].color = (circles[count - 1].color + 1) % 5;
-        glutPostRedisplay();
+        glutPostRedisplay(); // Trigger redisplay
     }
 }
 
@@ -53,14 +55,15 @@ void drawCircle(float x, float y, float radius)
     int lineAmount = 100;
     float twicePi = 2.0f * 3.14;
 
-    glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON); // Begin drawing a polygon
     for (i = 0; i <= lineAmount; i++)
     {
+        // Calculate the vertex positions of the circle
         glVertex2f(
             x + (radius * cos(i * twicePi / lineAmount)),
             y + (radius * sin(i * twicePi / lineAmount)));
     }
-    glEnd();
+    glEnd(); // End drawing the polygon
 }
 
 void renderFunction()
@@ -71,8 +74,9 @@ void renderFunction()
 
     for (int i = 0; i < count; i++)
     {
+        // Set the color of the circle based on its assigned color
         glColor3f(colors[circles[i].color].r, colors[circles[i].color].g, colors[circles[i].color].b);
-        drawCircle(circles[i].centre.x, circles[i].centre.y, 0.25);
+        drawCircle(circles[i].centre.x, circles[i].centre.y, 0.25); // Draw the circle
     }
     glFlush(); // Flush drawing commands
 }
